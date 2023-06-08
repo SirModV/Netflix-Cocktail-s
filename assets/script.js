@@ -25,3 +25,4 @@ function getRandomMovie() {
       console.log('Error:', error);
     });
 }
+
