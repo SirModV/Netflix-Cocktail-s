@@ -1,25 +1,24 @@
-const apiKey = 'c090d3c0';
+var apiKey = 'c090d3c0';
 
 function searchMovieByTitle() {
-  const titleInput = document.getElementById('searchInput');
-  const movieTitle = titleInput.value;
+  var titleInput = document.getElementById('searchInput');
+  var movieTitle = titleInput.value;
 
-  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&t=${movieTitle}`;
+  var apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&t=${movieTitle}`;
 
   fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
       if (data.Response === 'True') {
         const movieResult = document.getElementById('movieResult');
-        movieResult.textContent = `Movie Title: ${data.Title}, Year: ${data.Year}, Genre: ${data.Genre}`;
+        movieResult.innerHTML = "Movie Title: " + data.Title + ", Year: " + data.Year + ", Genre: " + data.Genre;
       } else {
         const movieResult = document.getElementById('movieResult');
         movieResult.textContent = 'Movie not found.';
       }
     })
-    .catch(error => {
-      console.log('Error:', error);
-    });
-}
+  }
 
 document.getElementById('searchButton').addEventListener('click', searchMovieByTitle);
