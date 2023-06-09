@@ -5,22 +5,11 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     </head>
         <body>
-            <div class="movie-genre">
-                <h1>Random Movie Generator</h1>
-                    <label for="genre">Select Genre:</label>
-                    <select id="genre">
-                        <option value="action">Action</option>
-                        <option value="comedy">Comedy</option>
-                        <option value="drama">Drama</option>
-                        <option value="fantasy">Fantasy</option>
-                    </select>
-                <button onclick="getRandomMovie()">Generate a Random Movie</button>
-            </div>
-                
+            <h1>Find a Movie!</h1>
             <div class="search-movie">         
                 <label for="searchInput">Search Movie: </label>
                 <input type="text" id="searchInput">
-                <button onclick="searchMovie()">Search</button>
+                <button id="searchButton">Search</button>
                 <div id="movieResult"></div>
             </div>
     
