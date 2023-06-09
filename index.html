@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
     <title>Netflix & Cocktail's</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    </head>
-        <body>
-            <header>
-            <h1 class="title has-text-centered">Netflix and Cocktails</h1>
-            <img src="https://www.mtlblog.com/media-library/image.jpg?id=26906680&width=1200&height=600&coordinates=0%2C100%2C0%2C100" alt="netflix and chill">
-            </header>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="title has-text-centered">Netflix and Cocktails</h1>
+      <img
+        src="https://www.mtlblog.com/media-library/image.jpg?id=26906680&width=1200&height=600&coordinates=0%2C100%2C0%2C100"
+        alt="netflix and chill"
+      />
+    </header>
+    <form id="search-form">
+      <p class="subtitle is-5">Alcohol you prefer</p>
+      <input type="checkbox" id="Vodka" name="Vodka" value="Vodka" />
+      <label for="Vodka"> Vodka </label>
 
-            <p class="subtitle is-5">Alcohol you prefer</p>
-                <input type="checkbox">
-                Vodka 
-              </label> 
+      <input type="checkbox" id="Gin" name="Gin" value="Gin" />
+      <label for="Gin"> Gin </label>
 
-              <label class="checkbox">
-                <input type="checkbox">
-                Gin
-              </label>
+      <input type="checkbox" id="Whiskey" name="Whiskey" value="Whiskey" />
+      <label for="Whiskey"> Whiskey </label>
 
-              <label class="checkbox">
-                <input type="checkbox">
-                Whiskey
-              </label>
+      <input type="checkbox" id="Tequila" name="Tequila" value="Tequila" />
+      <label for="Tequila"> Tequila </label>
 
-              <label class="checkbox">
-                <input type="checkbox">
-                Tequila
-              </label>
+      <input type="checkbox" id="Brandy" name="Brandy" value="Brandy" />
+      <label for="Brandy"> Brandy </label>
 
-              <label class="checkbox">
-                <input type="checkbox">
-                Brandy
-              </label>
-  
               <h1>Find a Movie!</h1>
               <div class="search-movie">         
                   <label for="searchInput">Search Movie: </label>
@@ -43,8 +42,7 @@
                   <button id="searchButton">Search</button>
                   <div id="movieResult"></div>
               </div>
-
+      
     <script src="./assets/js/script.js"></script>
-
-        </body>
+  </body>
 </html>
