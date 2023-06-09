@@ -4,26 +4,25 @@
     <title>Netflix & Cocktail's</title>
     </head>
         <body>
-            <h1>Random Movie Generator</h1>
-                <label for="genre">Select Genre:</label>
-                <select id="genre">
-                    <option value="action">Action</option>
-                    <option value="comedy">Comedy</option>
-                    <option value="drama">Drama</option>
-                    <option value="fantasy">Fantasy</option>
-                </select>
-
-        <button onclick="getRandomMovie()">Generate Random Movie</button>
-
-        <label for="searchInput">Search Movie:</label>
-        <input type="text" id="searchInput">
-        <button onclick="searchMovie()">Search</button>
-        <br>
-
-        <div id="movieResult"></div>
-        
-        <br>
-
+            <div class="movie-genre">
+                <h1>Random Movie Generator</h1>
+                    <label for="genre">Select Genre:</label>
+                    <select id="genre">
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasy">Fantasy</option>
+                    </select>
+                <button onclick="getRandomMovie()">Generate a Random Movie</button>
+            </div>
+                
+            <div class="search-movie">         
+                <label for="searchInput">Search Movie: </label>
+                <input type="text" id="searchInput">
+                <button onclick="searchMovie()">Search</button>
+                <div id="movieResult"></div>
+            </div>
+            
     <script src="./assets/script.js"></script>
 
         </body>
