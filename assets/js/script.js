@@ -1,28 +1,24 @@
-const apiKey = 'c090d3c0';
+var apiKey = 'c090d3c0';
 
-function getRandomMovie() {
-  const genreSelect = document.getElementById('genre');
-  const selectedGenre = genreSelect.value;
+function searchMovieByTitle() {
+  var titleInput = document.getElementById('searchInput');
+  var movieTitle = titleInput.value;
 
-  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${selectedGenre}`;
+  var apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&t=${movieTitle}`;
 
   fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      if (data.Response === 'True' && data.Search && data.Search.length > 0) {
-        const randomIndex = Math.floor(Math.random() * data.Search.length);
-        const randomMovie = data.Search[randomIndex];
-        const movieTitle = randomMovie.Title;
-
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+      if (data.Response === 'True') {
         const movieResult = document.getElementById('movieResult');
-        movieResult.textContent = `Random movie: ${movieTitle}`;
+        movieResult.innerHTML = "Movie Title: " + data.Title + ", Year: " + data.Year + ", Genre: " + data.Genre;
       } else {
         const movieResult = document.getElementById('movieResult');
-        movieResult.textContent = 'No movie found for the selected genre.';
+        movieResult.textContent = 'Movie not found.';
       }
     })
-    .catch(error => {
-      console.log('Error:', error);
-    });
-}
+  }
 
+document.getElementById('searchButton').addEventListener('click', searchMovieByTitle);
