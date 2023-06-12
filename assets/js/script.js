@@ -4,6 +4,7 @@ function searchMovieByTitle() {
   var titleInput = document.getElementById('searchInput');
   var movieTitle = titleInput.value;
 
+  //Pulled the API URL from the Omdbapi website.
   var apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&t=${movieTitle}`;
 
   fetch(apiUrl)
