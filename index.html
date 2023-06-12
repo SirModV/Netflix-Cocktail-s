@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>Netflix & Cocktail's</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
@@ -33,17 +35,14 @@
       <input type="checkbox" id="Brandy" name="Brandy" value="Brandy" />
       <label for="Brandy"> Brandy </label>
 
-      <br />
-      <input type="text" placeholder="Search Movie " id="searchInput" />
-      <button class="btn">Search</button>
-    </form>
-
-    <br />
-
-    <div id="movieResult"></div>
-
-    <br />
-
+              <h1>Find a Movie!</h1>
+              <div class="search-movie">         
+                  <label for="searchInput">Search Movie: </label>
+                  <input type="text" id="searchInput">
+                  <button id="searchButton">Search</button>
+                  <div id="movieResult"></div>
+              </div>
+      
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
