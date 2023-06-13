@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Alcohol and Movie Search</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-  />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sip and Stream</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- Bulma CSS link -->
+  <link rel="stylesheet" href="./assets/css/style.css"> <!-- Custom CSS link -->
 </head>
 <body>
-  <header>
-    <!-- Header-->
-    <h1 class="title has-text-centered">Netflix and Cocktails</h1>
+  <header> 
+    <h1 class="title has-text-centered">Sip and Stream</h1> <!-- Main title -->
   </header>
-
+  
   <section class="hero">
-    <!-- Hero section -->
-    <img
-        src="https://www.mtlblog.com/media-library/image.jpg?id=26906680&width=1200&height=600&coordinates=0%2C100%2C0%2C100"
-        alt="netflix and chill"
-      />
+    <img src="https://www.mtlblog.com/media-library/image.jpg?id=26906680&width=1200&height=600&coordinates=0%2C100%2C0%2C100" alt="netflix and chill"> <!-- Hero image -->
   </section>
 
   <main>
     <section class="user-input">
-      <h2>Drink</h2>
+      <h2>Drink</h2> <!-- Section for user input related to drinks -->
       <form id="search-form">
         <p class="subtitle is-5">Alcohol you prefer</p>
         <div>
@@ -53,50 +45,50 @@
     </section>
 
     <section>
-      <h2>Movie</h2>
+      <h2>Movie</h2> <!-- Section for movie search -->
       <div class="search-movie">         
         <label for="searchInput">Search Movie: </label>
         <input type="text" id="searchInput">
         <button id="searchButton">Search</button>
-        <div id="movieResult"></div>
-    </div>
+        <div id="movieResult"></div> <!-- Container for movie search results -->
+      </div>
     </section>
 
     <section id="container">
-        <div class="card">
-            <div class="movie-title">
-            <h2> Movie Title </h2>
-            </div>
-            <div class="poster"> 
-                <img src="https://placehold.co/150x200" alt="">   
-            </div>
-            <div class="drink-title">
-                <h2>Drink</h2>
-            </div>
-            <div class="drink-pic">
-                <img src="https://placehold.co/75x100" alt=""> 
-            </div>
+      <div class="card">
+        <div class="movie-title">
+          <h2>Movie Title</h2> <!-- Placeholder for movie title -->
         </div>
-        <div class="card">
-            <div class="movie-title">
-            <h2> Movie Title </h2>
-            </div>
-            <div class="poster"> 
-                <img src="https://placehold.co/150x200" alt="">   
-            </div>
-        
-            <div class="drink-title">
-                <h2>Drink</h2>
-            </div>
-            <div class="drink-pic">
-                <img src="https://placehold.co/75x100" alt=""> 
-            </div>
+        <div class="poster"> 
+          <img src="https://placehold.co/150x200" alt=""> <!-- Placeholder for movie poster image -->   
         </div>
+        <div class="drink-title">
+          <h2>Drink</h2> <!-- Placeholder for drink title -->
+        </div>
+        <div class="drink-pic">
+          <img src="https://placehold.co/75x100" alt=""> <!-- Placeholder for drink image --> 
+        </div>
+      </div>
+      <div class="card">
+        <div class="movie-title">
+          <h2>Movie Title</h2> <!-- Placeholder for movie title -->
+        </div>
+        <div class="poster"> 
+          <img src="https://placehold.co/150x200" alt=""> <!-- Placeholder for movie poster image -->   
+        </div>
+        <div class="drink-title">
+          <h2>Drink</h2> <!-- Placeholder for drink title -->
+        </div>
+        <div class="drink-pic">
+          <img src="https://placehold.co/75x100" alt=""> <!-- Placeholder for drink image --> 
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
     <!-- Footer -->
   </footer>
+  <script src="./assets/js/script.js"></script> <!-- JavaScript file link -->
 </body>
 </html>
