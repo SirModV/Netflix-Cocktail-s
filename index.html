@@ -1,49 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Netflix & Cocktail's</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<head>
+  <title>Alcohol and Movie Search</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1 class="title has-text-centered">Netflix and Cocktails</h1>
-      <img
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+  />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <!-- Header-->
+    <h1 class="title has-text-centered">Netflix and Cocktails</h1>
+  </header>
+
+  <section class="hero">
+    <!-- Hero section -->
+    <img
         src="https://www.mtlblog.com/media-library/image.jpg?id=26906680&width=1200&height=600&coordinates=0%2C100%2C0%2C100"
         alt="netflix and chill"
       />
-    </header>
-    <form id="search-form">
-      <p class="subtitle is-5">Alcohol you prefer</p>
-      <input type="checkbox" id="Vodka" name="Vodka" value="Vodka" />
-      <label for="Vodka"> Vodka </label>
+  </section>
 
-      <input type="checkbox" id="Gin" name="Gin" value="Gin" />
-      <label for="Gin"> Gin </label>
-
-      <input type="checkbox" id="Whiskey" name="Whiskey" value="Whiskey" />
-      <label for="Whiskey"> Whiskey </label>
-
-      <input type="checkbox" id="Tequila" name="Tequila" value="Tequila" />
-      <label for="Tequila"> Tequila </label>
-
-      <input type="checkbox" id="Brandy" name="Brandy" value="Brandy" />
-      <label for="Brandy"> Brandy </label>
+  <main>
+    <section class="user-input">
+      <h2>Drink</h2>
+      <form id="search-form">
+        <p class="subtitle is-5">Alcohol you prefer</p>
+        <div>
+          <input type="checkbox" id="vodka" name="alcohol" value="vodka">
+          <label for="vodka">Vodka</label>
+        </div>
+        <div>
+          <input type="checkbox" id="gin" name="alcohol" value="gin">
+          <label for="gin">Gin</label>
+        </div>
+        <div>
+          <input type="checkbox" id="whiskey" name="alcohol" value="whiskey">
+          <label for="whiskey">Whiskey</label>
+        </div>
+        <div>
+          <input type="checkbox" id="tequila" name="alcohol" value="tequila">
+          <label for="tequila">Tequila</label>
+        </div>
+        <div>
+          <input type="checkbox" id="brandy" name="alcohol" value="brandy">
+          <label for="brandy">Brandy</label>
+        </div>
       </form>
+    </section>
 
-              <h1>Find a Movie!</h1>
-              <div class="search-movie">         
-                  <label for="searchInput">Search Movie: </label>
-                  <input type="text" id="searchInput">
-                  <button id="searchButton">Search</button>
-                  <div id="movieResult"></div>
-              </div>
-      
-    <script src="./assets/js/script.js"></script>
-  </body>
+    <section>
+      <h2>Movie</h2>
+      <div class="search-movie">         
+        <label for="searchInput">Search Movie: </label>
+        <input type="text" id="searchInput">
+        <button id="searchButton">Search</button>
+        <div id="movieResult"></div>
+    </div>
+    </section>
+
+    <section id="container">
+        <div class="card">
+            <div class="movie-title">
+            <h2> Movie Title </h2>
+            </div>
+            <div class="poster"> 
+                <img src="https://placehold.co/150x200" alt="">   
+            </div>
+            <div class="drink-title">
+                <h2>Drink</h2>
+            </div>
+            <div class="drink-pic">
+                <img src="https://placehold.co/75x100" alt=""> 
+            </div>
+        </div>
+        <div class="card">
+            <div class="movie-title">
+            <h2> Movie Title </h2>
+            </div>
+            <div class="poster"> 
+                <img src="https://placehold.co/150x200" alt="">   
+            </div>
+        
+            <div class="drink-title">
+                <h2>Drink</h2>
+            </div>
+            <div class="drink-pic">
+                <img src="https://placehold.co/75x100" alt=""> 
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Footer -->
+  </footer>
+</body>
 </html>
