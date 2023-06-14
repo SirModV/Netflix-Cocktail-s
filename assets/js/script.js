@@ -1,6 +1,8 @@
-var apiKey = "c090d3c0";
+  
+var apiKey = 'cb373342';
 function searchMoviesByTitles() {
-  var keywordInput = document.getElementById("searchInput").value.toLowerCase();
+  var keywordInput = document.getElementById('searchInput').value.toLowerCase();
+
 
   var apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${keywordInput}`;
   //created Api URL for the keyword.
@@ -42,8 +44,51 @@ function searchMoviesByTitles() {
           "No movies found for the keyword: " + keywordInput;
       }
     });
+  }
+
+  
+  
+  
+  function getRandomCocktail() {
+    var cocktailUrl = 'http://www.thecocktaildb.com/api/json/v1/1/random.php?apikey=1'
+    
+    fetch(cocktailUrl)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var randomDrink = Math.floor(Math.random()*data.drinks.length)
+      var cocktailTitle = data.drinks[randomDrink]
+      console.log(cocktailTitle)
+    })
+    
+}
+getRandomCocktail();
+
+
+function getMoviePoster(movieID) {
+  var apiUrl = `http://img.omdbapi.com/?i=${movieID}&apikey=${apiKey}`;
+  console.log("oh hey ", apiUrl)
+
+  fetch(apiUrl)
+  .then(function(response) {
+    return response.blob(); //binary data
+  })
+  .then(function(data) {
+    console.log("Poster data!", data);
+    var fr = new FileReader(); //create new object File Reader 
+    //turning binary data into a string
+    fr.readAsDataURL(data); //string data gets passed in
+    fr.onloadend = function() {
+      var s = fr.result;
+      console.log("Woo?", s);
+      var newImg = document.createElement("img");
+      newImg.setAttribute("src", s);
+      document.getElementById('listOfMovies').appendChild(newImg);
+    }
+  });
 }
 
-document
-  .getElementById("searchButton")
-  .addEventListener("click", searchMoviesByTitles);
+
+document.getElementById('searchButton').addEventListener('click', searchMoviesByTitles);
+      
