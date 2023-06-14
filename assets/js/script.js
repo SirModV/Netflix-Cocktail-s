@@ -29,18 +29,14 @@ document.getElementById('searchButton').addEventListener('click', searchMovieByT
 function getMoviePoster(movieID) {
   var apiUrl = `http://img.omdbapi.com/?i=${movieID}&apikey=${apiKey}`;
   console.log("oh hey ", apiUrl)
-  // fetch
 
-  //get response and turn into JSON
-
-  // get poster image and write to page
   fetch(apiUrl)
   .then(function(response) {
     return response.blob(); //binary data
   })
   .then(function(data) {
     console.log("Poster data!", data);
-    var fr = new FileReader(); //create new object File Reader h
+    var fr = new FileReader(); //create new object File Reader 
     //turning binary data into a string
     fr.readAsDataURL(data); //string data gets passed in
     fr.onloadend = function() {
