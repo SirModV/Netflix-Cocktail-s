@@ -39,7 +39,7 @@ function searchMoviesByTitles() {
 }
 
 
-  function getRandomCocktail() {
+function getRandomCocktail() {
   var cocktailUrl = 'http://www.thecocktaildb.com/api/json/v1/1/random.php?apikey=1'
 
   fetch(cocktailUrl)
