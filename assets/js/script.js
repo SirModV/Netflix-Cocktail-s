@@ -1,12 +1,8 @@
-var apiKey = 'c090d3c0';
-function searchMoviesByTitles() {
-  var keywordInput = document.getElementById('searchInput').value.toLowerCase();
   
 var apiKey = 'cb373342';
+function searchMoviesByTitles() {
+  var keywordInput = document.getElementById('searchInput').value.toLowerCase();
 
-function searchMovieByTitle() {
-  var titleInput = document.getElementById('searchInput');
-  var movieTitle = titleInput.value;
 
    var apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${keywordInput}`;
    //created Api URL for the keyword.
@@ -43,16 +39,13 @@ function searchMovieByTitle() {
     });
   }
 
-document.getElementById('searchButton').addEventListener('click', searchMovieByTitle);
-
-function getMoviePoster(movieID) {
-  var apiUrl = `http://img.omdbapi.com/?i=${movieID}&apikey=${apiKey}`;
-  console.log("oh hey ", apiUrl)
-
-function getRandomCocktail() {
-  var cocktailUrl = 'http://www.thecocktaildb.com/api/json/v1/1/random.php?apikey=1'
-
-  fetch(cocktailUrl)
+  
+  
+  
+  function getRandomCocktail() {
+    var cocktailUrl = 'http://www.thecocktaildb.com/api/json/v1/1/random.php?apikey=1'
+    
+    fetch(cocktailUrl)
     .then(function(response) {
       return response.json();
     })
@@ -65,7 +58,10 @@ function getRandomCocktail() {
 }
 getRandomCocktail();
 
-document.getElementById('searchButton').addEventListener('click', searchMoviesByTitles);
+
+function getMoviePoster(movieID) {
+  var apiUrl = `http://img.omdbapi.com/?i=${movieID}&apikey=${apiKey}`;
+  console.log("oh hey ", apiUrl)
 
   fetch(apiUrl)
   .then(function(response) {
@@ -85,3 +81,7 @@ document.getElementById('searchButton').addEventListener('click', searchMoviesBy
     }
   });
 }
+
+
+document.getElementById('searchButton').addEventListener('click', searchMoviesByTitles);
+      
