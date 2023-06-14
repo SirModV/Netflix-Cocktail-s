@@ -1,28 +1,54 @@
-const apiKey = 'c090d3c0';
+var apiKey = 'cb373342';
 
-function getRandomMovie() {
-  const genreSelect = document.getElementById('genre');
-  const selectedGenre = genreSelect.value;
+function searchMovieByTitle() {
+  var titleInput = document.getElementById('searchInput');
+  var movieTitle = titleInput.value;
 
-  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${selectedGenre}`;
+  //Pulled the API URL from the Omdbapi website.
+  var apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&t=${movieTitle}`;
 
   fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      if (data.Response === 'True' && data.Search && data.Search.length > 0) {
-        const randomIndex = Math.floor(Math.random() * data.Search.length);
-        const randomMovie = data.Search[randomIndex];
-        const movieTitle = randomMovie.Title;
-
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+      if (data.Response === 'True') {
         const movieResult = document.getElementById('movieResult');
-        movieResult.textContent = `Random movie: ${movieTitle}`;
+        movieResult.innerHTML = "Movie Title: " + data.Title + ", Year: " + data.Year + ", Genre: " + data.Genre;
+        var movieId = data.imdbID; //grabs data from movie result
+        getMoviePoster(movieId); //passed info into function
       } else {
         const movieResult = document.getElementById('movieResult');
-        movieResult.textContent = 'No movie found for the selected genre.';
+        movieResult.textContent = 'Movie not found.';
       }
-    })
-    .catch(error => {
-      console.log('Error:', error);
     });
-}
+  }
 
+document.getElementById('searchButton').addEventListener('click', searchMovieByTitle);
+
+function getMoviePoster(movieID) {
+  var apiUrl = `http://img.omdbapi.com/?i=${movieID}&apikey=${apiKey}`;
+  console.log("oh hey ", apiUrl)
+  // fetch
+
+  //get response and turn into JSON
+
+  // get poster image and write to page
+  fetch(apiUrl)
+  .then(function(response) {
+    return response.blob(); //binary data
+  })
+  .then(function(data) {
+    console.log("Poster data!", data);
+    var fr = new FileReader(); //create new object File Reader h
+    //turning binary data into a string
+    fr.readAsDataURL(data); //string data gets passed in
+    fr.onloadend = function() {
+      var s = fr.result;
+      console.log("Woo?", s);
+      var newImg = document.createElement("img");
+      newImg.setAttribute("src", s);
+      document.getElementById('listOfMovies').appendChild(newImg);
+    }
+  });
+}
