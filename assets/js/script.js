@@ -1,25 +1,44 @@
+var apiKey = 'c090d3c0';
+function searchMoviesByTitles() {
+  var keywordInput = document.getElementById('searchInput').value.toLowerCase();
+  
 var apiKey = 'cb373342';
 
 function searchMovieByTitle() {
   var titleInput = document.getElementById('searchInput');
   var movieTitle = titleInput.value;
 
-  //Pulled the API URL from the Omdbapi website.
-  var apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&type=movie&t=${movieTitle}`;
+   var apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${keywordInput}`;
+   //created Api URL for the keyword.
 
   fetch(apiUrl)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(data) {
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
       if (data.Response === 'True') {
-        const movieResult = document.getElementById('movieResult');
-        movieResult.innerHTML = "Movie Title: " + data.Title + ", Year: " + data.Year + ", Genre: " + data.Genre;
-        var movieId = data.imdbID; //grabs data from movie result
-        getMoviePoster(movieId); //passed info into function
+        var movies = data.Search;
+
+        var movieResult = document.getElementById('movieResult');
+        movieResult.innerHTML = ''; 
+        //clears last result
+
+        movies.forEach(function(movie) {
+          var movieInformationUrl = `https://www.omdbapi.com/?apikey=${apiKey}&type=movie&i=${movie.imdbID}`;
+          //created another for loop, for the "movie.imdbID"
+
+          fetch(movieInformationUrl)
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(movieData) {
+              var movieDetails = "Movie Title: " + movieData.Title + ", Year: " + movieData.Year + ", Genre: " + movieData.Genre;
+              movieResult.innerHTML += movieDetails + "<br>";
+            });
+        });
       } else {
-        const movieResult = document.getElementById('movieResult');
-        movieResult.textContent = 'Movie not found.';
+        var movieResult = document.getElementById('movieResult');
+        movieResult.textContent = 'No movies found for the keyword: ' + keywordInput;
       }
     });
   }
@@ -29,6 +48,24 @@ document.getElementById('searchButton').addEventListener('click', searchMovieByT
 function getMoviePoster(movieID) {
   var apiUrl = `http://img.omdbapi.com/?i=${movieID}&apikey=${apiKey}`;
   console.log("oh hey ", apiUrl)
+
+function getRandomCocktail() {
+  var cocktailUrl = 'http://www.thecocktaildb.com/api/json/v1/1/random.php?apikey=1'
+
+  fetch(cocktailUrl)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var randomDrink = Math.floor(Math.random()*data.drinks.length)
+      var cocktailTitle = data.drinks[randomDrink]
+      console.log(cocktailTitle)
+    })
+    
+}
+getRandomCocktail();
+
+document.getElementById('searchButton').addEventListener('click', searchMoviesByTitles);
 
   fetch(apiUrl)
   .then(function(response) {
