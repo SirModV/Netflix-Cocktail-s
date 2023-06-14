@@ -38,4 +38,21 @@ function searchMoviesByTitles() {
     });
 }
 
+
+function getRandomCocktail() {
+  var cocktailUrl = 'http://www.thecocktaildb.com/api/json/v1/1/random.php?apikey=1'
+
+  fetch(cocktailUrl)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var randomDrink = Math.floor(Math.random()*data.drinks.length)
+      var cocktailTitle = data.drinks[randomDrink]
+      console.log(cocktailTitle)
+    })
+    
+}
+getRandomCocktail();
+
 document.getElementById('searchButton').addEventListener('click', searchMoviesByTitles);
