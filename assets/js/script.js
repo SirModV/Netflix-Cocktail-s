@@ -3,6 +3,9 @@ var apiKey = 'cb373342';
 function searchMoviesByTitles() {
   var keywordInput = document.getElementById('searchInput').value.toLowerCase();
 
+    // This will store the word in local storage
+    localStorage.setItem('searchKeyword', keywordInput);
+
 
   var apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${keywordInput}`;
   //created Api URL for the keyword.
@@ -89,6 +92,15 @@ function getMoviePoster(movieID) {
   });
 }
 
+//Window is used to listen for load event / used to store the search word. Taken from week 4 (Basic API)
+
+window.addEventListener('load', function() {
+  var storedKeyword = localStorage.getItem('searchKeyword');
+  if (storedKeyword) {
+    document.getElementById('searchInput').value = storedKeyword;
+    searchMoviesByTitles();
+  }
+});
 
 document.getElementById('searchButton').addEventListener('click', searchMoviesByTitles);
       
