@@ -14,30 +14,43 @@
   </head>
   <body>
     <header>
-      <h1 class="title has-text-centered">Sip and Stream</h1>
+      <h1 class="title has-text-centered"></h1>
       <!-- Main title -->
     </header>
 
-    <section class="hero">
-      <img
-        src="https://www.mtlblog.com/media-library/image.jpg?id=26906680&width=1200&height=600&coordinates=0%2C100%2C0%2C100"
-        alt="netflix and chill"
-      />
-      <!-- Hero image -->
+    <section>
+      <figure class="image is-3by1">
+        <img
+          src="https://www.mtlblog.com/media-library/image.jpg?id=26906680&width=1245&height=700&quality=85&coordinates=0%2C68%2C0%2C68"
+          alt="netflix and chill"
+        />
+        <!-- Hero image -->
+      </figure>
     </section>
 
+    <style>
+    .checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+    </style>
+
     <main>
+      <div class="columns">
+        <div class="column is-half">
       <section class="user-input">
-        <h2>Drink</h2>
+        <h2 class="title">Drink</h2>
         <!-- Section for user input related to drinks -->
         <form id="search-form">
-          <p class="subtitle is-5">Alcohol you prefer</p>
+          <p class="subtitle is-5">Choose your alcohol</p>
+          <div class="checkbox-container">
           <div>
             <input type="checkbox" id="vodka" name="alcohol" value="vodka" />
             <label for="vodka">Vodka</label>
           </div>
           <div>
-            <input type="checkbox" id="gin" name="alcohol" value="gin" />
+            <input type="checkbox" id="gin" name="alcohol" value="gin" class="is-primary" />
             <label for="gin">Gin</label>
           </div>
           <div>
@@ -62,23 +75,28 @@
             <input type="checkbox" id="brandy" name="alcohol" value="brandy" />
             <label for="brandy">Brandy</label>
           </div>
+        </div>
+      </div>
         </form>
       </section>
 
       <section>
-        <h2>Movie</h2>
+        <div class="column">
+        <h2 class="title">Movie</h2>
         <!-- Section for movie search -->
         <div class="search-movie">
-          <label for="searchInput">Search Movie: </label>
-          <input type="text" id="searchInput" />
+          <input type="text" id="searchInput" placeholder="Search Movie" />
           <button id="searchButton">Search</button>
           <div id="movieResult"></div>
           <!-- Container for movie search results -->
         </div>
+
       </section>
+    </div>
+    </div>
 
       <section id="container" class="container">
-        <div class="columns is-flex-wrap-wrap is-full">
+        <div class="columns is-flex-wrap-wrap">
           <!-- One massive card that will hold the drink and movie info -->
           <div class="column is-one-quarter">
             <header class="card-header">
@@ -238,7 +256,6 @@
             </div>
           </div>
 
-          <!-- One massive card that will hold the drink and movie info -->
           <div class="column is-one-quarter">
             <header class="card-header">
               <p class="card-header-title is-centered">
@@ -268,7 +285,7 @@
                 </div>
               </div>
               <!-- Cocktail Card Info -->
-              <div id="cocktail" class="column is-one-half">
+              <div id="cocktail" class="column card is-one-half">
                 <div class="card is-one-half">
                   <header class="card-header">
                     <p class="card-header-title is-centered">Cocktail Name</p>
