@@ -20,61 +20,27 @@
           src="https://www.mtlblog.com/media-library/image.jpg?id=26906680&width=1245&height=700&quality=85&coordinates=0%2C68%2C0%2C68"
           alt="netflix and chill"
         />
-        <!-- Hero image -->
+        <!-- Header image -->
       </figure>
     </section>
-
-    <style>
-    .checkbox-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-    </style>
 
     <main>
       <div class="columns">
         <div class="column is-half">
-      <section class="user-input">
         <h2 class="title">Drink</h2>
-        <!-- Section for user input related to drinks -->
-        <form id="search-form">
+        <!-- Dropdown menu for alochol -->
           <p class="subtitle is-5">Choose your alcohol</p>
-          <div class="checkbox-container">
-          <div>
-            <input type="checkbox" id="vodka" name="alcohol" value="vodka" />
-            <label for="vodka">Vodka</label>
+          <div class="select">
+            <select>
+              <option>Whiskey</option>
+              <option>Gin</option>
+              <option>Vodka</option>
+              <option>Tequila</option>
+              <option>Brandy</option>
+              <option>Rum</option>
+            </select>
           </div>
-          <div>
-            <input type="checkbox" id="gin" name="alcohol" value="gin" class="is-primary" />
-            <label for="gin">Gin</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="whiskey"
-              name="alcohol"
-              value="whiskey"
-            />
-            <label for="whiskey">Whiskey</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="tequila"
-              name="alcohol"
-              value="tequila"
-            />
-            <label for="tequila">Tequila</label>
-          </div>
-          <div>
-            <input type="checkbox" id="brandy" name="alcohol" value="brandy" />
-            <label for="brandy">Brandy</label>
-          </div>
-        </div>
       </div>
-        </form>
-      </section>
 
       <section>
         <div class="column">
@@ -417,6 +383,7 @@
       <!-- Footer -->
     </footer>
     <script src="./assets/js/script.js"></script>
+    
     <!-- JavaScript file link -->
   </body>
 </html>
