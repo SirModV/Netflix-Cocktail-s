@@ -13,7 +13,6 @@
     <!-- Custom CSS link -->
   </head>
   <body>
-
     <section>
       <figure class="image is-3by1">
         <img
@@ -25,42 +24,58 @@
     </section>
 
     <main>
-      <div class="columns">
-        <div class="column is-half">
-        <h2 class="title">Drink</h2>
-        <!-- Dropdown menu for alochol -->
-          <p class="subtitle is-5">Choose your alcohol</p>
-          <div class="select">
-            <select>
-              <option>Whiskey</option>
-              <option>Gin</option>
-              <option>Vodka</option>
-              <option>Tequila</option>
-              <option>Brandy</option>
-              <option>Rum</option>
-            </select>
-          </div>
-      </div>
+      <!-- Form that handles search for both alcohol and movie input -->
+      <form id="search-form"class="is-flex-wrap-wrap">
+        <div class="field is-horizontal">
+          <div class="field-body ">
+            
+            <!-- alcohol field  -->
+            <div class="field">
+              <!-- <label class="label">Alcohol</label> -->
+              <div class="control is-full">
+                <div class="select">
+                  <select>
+                    <option value="" disabled selected>Choose your alcohol</option>
+                    <option>Whiskey</option>
+                    <option>Gin</option>
+                    <option>Vodka</option>
+                    <option>Tequila</option>
+                    <option>Brandy</option>
+                    <option>Rum</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Movie field -->
+            <div class="field has-addons">
 
-      <section>
-        <div class="column">
-        <h2 class="title">Movie</h2>
-        <!-- Section for movie search -->
-        <div class="search-movie">
-          <input type="text" id="searchInput" placeholder="Search Movie" />
-          <button id="searchButton">Search</button>
-          <div id="movieResult"></div>
-          <!-- Container for movie search results -->
+              <!-- <label class="label">Movie</label> -->
+              <div class="control is-flex-wrap-wrap">
+                <input
+                class="input"
+                id="searchInput"
+                type="text"
+                placeholder="Search by movie name :)"
+                />
+              </div>
+            
+              <div class="control">
+                <button id="searchButton" class="button is-link">Submit</button>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-      </section>
-    </div>
-    </div>
+
+        
+      </form>
 
       <section id="container" class="container">
-        <div class="columns is-flex-wrap-wrap">
+        <div id="new-movie-result" class="columns is-flex-wrap-wrap">
           <!-- One massive card that will hold the drink and movie info -->
-          <div class="column is-one-quarter">
+          <div class="column is-one-third">
             <header class="card-header">
               <p class="card-header-title is-centered">
                 Movie Name and Drink Name
@@ -113,7 +128,7 @@
           </div>
 
           <!-- One massive card that will hold the drink and movie info -->
-          <div class="column is-one-quarter">
+          <div class="column is-one-third">
             <header class="card-header">
               <p class="card-header-title is-centered">
                 Movie Name and Drink Name
@@ -166,7 +181,7 @@
           </div>
 
           <!-- One massive card that will hold the drink and movie info -->
-          <div class="column is-one-quarter">
+          <div class="column is-one-third">
             <header class="card-header">
               <p class="card-header-title is-centered">
                 Movie Name and Drink Name
@@ -218,162 +233,8 @@
             </div>
           </div>
 
-          <div class="column is-one-quarter">
-            <header class="card-header">
-              <p class="card-header-title is-centered">
-                Movie Name and Drink Name
-              </p>
-            </header>
-            <div class="columns">
-              <!-- Movie Card Info -->
-              <div id="movie" class="column card is-one-half">
-                <div class="card is-one-half">
-                  <header class="card-header">
-                    <p class="card-header-title is-centered">Movie Name</p>
-                  </header>
-                  <div class="card-image">
-                    <figure class="image is4x3">
-                      <img
-                        src="https://m.media-amazon.com/images/I/81F5PF9oHhL._AC_UF894,1000_QL80_.jpg"
-                        alt=""
-                      />
-                      <!-- Placeholder for movie poster image -->
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <p class="title is-4">Movie year</p>
-                    <p>Movie summary goes here, super cool watch now.</p>
-                  </div>
-                </div>
-              </div>
-              <!-- Cocktail Card Info -->
-              <div id="cocktail" class="column card is-one-half">
-                <div class="card is-one-half">
-                  <header class="card-header">
-                    <p class="card-header-title is-centered">Cocktail Name</p>
-                  </header>
-                  <div class="card-image">
-                    <figure class="image is4x3">
-                      <img
-                        src="https://assets.gqindia.com/photos/609a8e5b2c7bfc93e2031ba2/1:1/w_1080,h_1080,c_limit/World%20Cocktail%20Day.jpeg"
-                        alt=""
-                      />
-                      <!-- Placeholder for movie poster image -->
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <p class="title is-4">Drink Ingredients go here</p>
-                    <p>Cocktail summary goes here, super delcious</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- One massive card that will hold the drink and movie info -->
-          <div class="column is-one-quarter">
-            <header class="card-header">
-              <p class="card-header-title is-centered">
-                Movie Name and Drink Name
-              </p>
-            </header>
-            <div class="columns">
-              <!-- Movie Card Info -->
-              <div id="movie" class="column card is-one-half">
-                <div class="card is-one-half">
-                  <header class="card-header">
-                    <p class="card-header-title is-centered">Movie Name</p>
-                  </header>
-                  <div class="card-image">
-                    <figure class="image is4x3">
-                      <img
-                        src="https://m.media-amazon.com/images/I/81F5PF9oHhL._AC_UF894,1000_QL80_.jpg"
-                        alt=""
-                      />
-                      <!-- Placeholder for movie poster image -->
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <p class="title is-4">Movie year</p>
-                    <p>Movie summary goes here, super cool watch now.</p>
-                  </div>
-                </div>
-              </div>
-              <!-- Cocktail Card Info -->
-              <div id="cocktail" class="column card is-one-half">
-                <div class="card is-one-half">
-                  <header class="card-header">
-                    <p class="card-header-title is-centered">Cocktail Name</p>
-                  </header>
-                  <div class="card-image">
-                    <figure class="image is4x3">
-                      <img
-                        src="https://assets.gqindia.com/photos/609a8e5b2c7bfc93e2031ba2/1:1/w_1080,h_1080,c_limit/World%20Cocktail%20Day.jpeg"
-                        alt=""
-                      />
-                      <!-- Placeholder for movie poster image -->
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <p class="title is-4">Drink Ingredients go here</p>
-                    <p>Cocktail summary goes here, super delcious</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- One massive card that will hold the drink and movie info -->
-          <div class="column is-one-quarter">
-            <header class="card-header">
-              <p class="card-header-title is-centered">
-                Movie Name and Drink Name
-              </p>
-            </header>
-            <div class="columns">
-              <!-- Movie Card Info -->
-              <div id="movie" class="column card is-one-half">
-                <div class="card is-one-half">
-                  <header class="card-header">
-                    <p class="card-header-title is-centered">Movie Name</p>
-                  </header>
-                  <div class="card-image">
-                    <figure class="image is4x3">
-                      <img
-                        src="https://m.media-amazon.com/images/I/81F5PF9oHhL._AC_UF894,1000_QL80_.jpg"
-                        alt=""
-                      />
-                      <!-- Placeholder for movie poster image -->
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <p class="title is-4">Movie year</p>
-                    <p>Movie summary goes here, super cool watch now.</p>
-                  </div>
-                </div>
-              </div>
-              <!-- Cocktail Card Info -->
-              <div id="cocktail" class="column card is-one-half">
-                <div class="card is-one-half">
-                  <header class="card-header">
-                    <p class="card-header-title is-centered">Cocktail Name</p>
-                  </header>
-                  <div class="card-image">
-                    <figure class="image is4x3">
-                      <img
-                        src="https://assets.gqindia.com/photos/609a8e5b2c7bfc93e2031ba2/1:1/w_1080,h_1080,c_limit/World%20Cocktail%20Day.jpeg"
-                        alt=""
-                      />
-                      <!-- Placeholder for movie poster image -->
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <p class="title is-4">Drink Ingredients go here</p>
-                    <p>Cocktail summary goes here, super delcious</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+         
           </div>
         </div>
       </section>
@@ -383,7 +244,7 @@
       <!-- Footer -->
     </footer>
     <script src="./assets/js/script.js"></script>
-    
+
     <!-- JavaScript file link -->
   </body>
 </html>
