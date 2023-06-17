@@ -5,7 +5,7 @@ var cocktails = [];
 var movies = []
 console.log("Hola!");
 function searchMoviesByTitles(event) {
-  //event.preventDefault();
+  event.preventDefault();
   //getCocktails()
   console.log(cocktails)
   newMovieResultEl.innerHTML = ''
@@ -27,8 +27,8 @@ function searchMoviesByTitles(event) {
          movies = data.Search;
         console.log("insisde searchMoviesByTitles");
         console.log(data)
-        var movieResult = document.getElementById("movieResult");
-        movieResult.innerHTML = "";
+        // var movieResult = document.getElementById("movieResult");
+        // movieResult.innerHTML = "";
         //clears last result
         console.log(movies)
         for (var i = 0; i < movies.length; i++) {
@@ -90,13 +90,15 @@ function getCocktails() {
     .then(function (data) {
        cocktails.push(data.drinks[0]);
      })
-   console.log(cocktails)  
+  //  console.log(cocktails)  
 }
 
 function getRandomCocktail() {
   for(var i =0;i<20;i++){
     getCocktails()
   }
+  console.log("Cocktail List")
+  console.log(cocktails)
 }
 
 
@@ -134,7 +136,7 @@ function renderData(movie, cocktail) {
   console.log(movie)
   console.log(cocktail)
 
-  return newMovieResultEl.innerHTML += `<div class="column is-one-third">
+  return newMovieResultEl.innerHTML += `<div class="column is-one-third is-primary">
   <header class="card-header is-centered">
     <p class="card-header-title is-centered">
       ${movie.Title} and ${cocktail.strDrink}
@@ -188,8 +190,18 @@ function renderData(movie, cocktail) {
       </div>
     </div>
     <div class="column card is-full is-flex">
-      <p class="title is-6">Cocktail Instructions</p>
-      <p>${cocktail.strInstructions}</p>
+    <header class="card-header">
+    <p class="card-header-title is-centered">Cocktail Instructions</p>
+  </header>
+  <div class="card-content">
+  <p class="subtitle is-4">Ingredients</p>
+  <p>${cocktail.strInstructions}</p>
+  <ul>
+    <li>${cocktail.strIngredient1}</li>
+    <li>${cocktail.strIngredient2}</li>
+  </ul>
+  
+</div>
     </div>
   </div>
 </div>`
