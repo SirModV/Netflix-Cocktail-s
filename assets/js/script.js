@@ -1,10 +1,13 @@
 var searchEl = document.querySelector('#searchButton');
 var newMovieResultEl = document.querySelector('#new-movie-result');
 var apiKey = 'cb373342';
-var cocktails = '';
+var cocktails = [];
+var movies = []
 console.log("Hola!");
-function searchMoviesByTitles() {
-  // console.log(cocktails)
+function searchMoviesByTitles(event) {
+  //event.preventDefault();
+  //getCocktails()
+  console.log(cocktails)
   newMovieResultEl.innerHTML = ''
   var keywordInput = document.getElementById('searchInput').value.toLowerCase();
 
@@ -14,29 +17,34 @@ function searchMoviesByTitles() {
 
   var apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${keywordInput}`;
   //created Api URL for the keyword.
-getCocktails()
+  //getCocktails()
   fetch(apiUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       if (data.Response === "True") {
-        var movies = data.Search;
+         movies = data.Search;
         console.log("insisde searchMoviesByTitles");
         console.log(data)
         var movieResult = document.getElementById("movieResult");
         movieResult.innerHTML = "";
         //clears last result
-
+        console.log(movies)
         for (var i = 0; i < movies.length; i++) {
           // var cocktail = cocktails[getCocktails()];
-          console.log(cocktails)
-            renderData(movies[i],cocktails)
+          getCocktails()
+         
+           console.log(cocktails)
+          renderData(movies[i], cocktails[i]) 
         
+
           
+
+
           // renderData(movies[i], cocktails)
         }
-       
+
       } else {
         var movieResult = document.getElementById("movieResult");
         movieResult.textContent =
@@ -73,30 +81,27 @@ function getSingleMovie(movieId) {
 
 function getCocktails() {
   var cocktailUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php?apikey=1'
-  // var cocktailUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin'
+  //var cocktailUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin'
   var final
   fetch(cocktailUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      // var randomDrink = Math.floor(Math.random() * data.drinks.length)
-      // var cocktailTitle = data.drinks[randomDrink]
-      console.log(data.drinks)
-      cocktails = data.drinks;
-      console.log(cocktails)
-    })
-  // console.log(cocktails)
-
+       cocktails.push(data.drinks[0]);
+     })
+   console.log(cocktails)  
 }
 
 function getRandomCocktail() {
-  console.log(cocktails)
-  console.log(cocktails.length)
-  return Math.floor(Math.random() * cocktails.length)
+  for(var i =0;i<20;i++){
+    getCocktails()
+  }
 }
 
-// getRandomCocktail();
+
+
+getRandomCocktail();
 
 
 function getMoviePoster(movieID) {
@@ -129,18 +134,18 @@ function renderData(movie, cocktail) {
   console.log(movie)
   console.log(cocktail)
 
-  return newMovieResultEl.innerHTML = `<div class="column is-one-quarter">
-  <header class="card-header">
+  return newMovieResultEl.innerHTML += `<div class="column is-one-third">
+  <header class="card-header is-centered">
     <p class="card-header-title is-centered">
       ${movie.Title} and ${cocktail.strDrink}
     </p>
   </header>
-  <div class="columns">
+  <div class="columns is-multiline is-flex">
     <!-- Movie Card Info -->
-    <div id="movie" class="column card is-one-half">
+    <div id="movie" class="column card is-one-half is-flex">
       <div class="card is-one-half">
         <header class="card-header">
-          <p class="card-header-title is-centered">${movie.Title}</p>
+          <p class="card-header-title is-centered ">${movie.Title}</p>
         </header>
         <div class="card-image">
           <figure class="image is4x3">
@@ -158,7 +163,7 @@ function renderData(movie, cocktail) {
       </div>
     </div>
     <!-- Cocktail Card Info -->
-    <div id="cocktail" class="column card is-one-half">
+    <div id="cocktail" class="column card is-one-half is-flex">
       <div class="card is-one-half">
         <header class="card-header">
           <p class="card-header-title is-centered">${cocktail.strDrink}</p>
@@ -166,17 +171,25 @@ function renderData(movie, cocktail) {
         <div class="card-image">
           <figure class="image is4x3">
             <img
-              src="${cocktail.image}"
+              src="${cocktail.strDrinkThumb}"
               alt=""
             />
             <!-- Placeholder for movie poster image -->
           </figure>
         </div>
         <div class="card-content">
-          <p class="title is-4">${cocktail.ingredients}</p>
-          <p>${cocktail.instructions}</p>
+          <p class="title is-4">Ingredients</p>
+          <ul>
+            <li>${cocktail.strIngredient1}</li>
+            <li>${cocktail.strIngredient2}</li>
+          </ul>
+          
         </div>
       </div>
+    </div>
+    <div class="column card is-full is-flex">
+      <p class="title is-6">Cocktail Instructions</p>
+      <p>${cocktail.strInstructions}</p>
     </div>
   </div>
 </div>`
