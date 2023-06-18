@@ -21,7 +21,9 @@ Yasmin Castillo: JavaScript, Movie API.
 Ashley Tan: CSS (Bulma).
 
 ## Resources
-N/A
+Movie API: https://www.omdbapi.com/
+Cocktail API: https://bulma.io/
+CSS Used: https://bulma.io/
 
 ## Acknowledgments
 Anyone who helped or guided us through this process up to this point!
@@ -30,4 +32,4 @@ Anyone who helped or guided us through this process up to this point!
 https://sirmodv.github.io/Netflix-Cocktail-s/
 
 ## Feature Photos
-Add Photos after the code freeze. 
+![image](https://github.com/SirModV/Netflix-Cocktail-s/assets/128574459/2b05934d-e40c-4c7c-a08a-726756504649)
