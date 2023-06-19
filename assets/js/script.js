@@ -184,6 +184,8 @@ function renderData(movie, cocktail) {
           <ul>
             <li>${cocktail.strIngredient1}</li>
             <li>${cocktail.strIngredient2}</li>
+            <li>${cocktail.strIngredient3}</li>
+            <li>${cocktail.strIngredient4}</li>
           </ul>
           
         </div>
@@ -194,13 +196,8 @@ function renderData(movie, cocktail) {
     <p class="card-header-title is-centered">Cocktail Instructions</p>
   </header>
   <div class="card-content">
-  <p class="subtitle is-4">Ingredients</p>
-  <p>${cocktail.strInstructions}</p>
-  <ul>
-    <li>${cocktail.strIngredient1}</li>
-    <li>${cocktail.strIngredient2}</li>
-  </ul>
-  
+  <p class="subtitle is-4"></p>
+  <p>${cocktail.strInstructions}</p>  
 </div>
     </div>
   </div>
