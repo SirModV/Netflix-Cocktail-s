@@ -14,7 +14,7 @@ Can download the code from GitHub or check out the direct link to the website.
 Please reach out to any of us below for any issues. 
 
 ## Author
-Mo Dukuly: HTML and Github implementation.
+Mo Dukuly: HTML, Github implementation JavaScript.
 Bradley Sanderson: JavaScript, Movie API.
 Jacob Fujan: JavaScript, Cocktail API.
 Yasmin Castillo: JavaScript, Movie API.
@@ -27,7 +27,7 @@ CSS Used: [https://bulma.io/](https://bulma.io/)
 
 ## Acknowledgments
 Huge thank you to Chris!
-Anyone who helped or guided us through this process up to this point!
+
 
 ## Direct Link
 https://sirmodv.github.io/Netflix-Cocktail-s/
